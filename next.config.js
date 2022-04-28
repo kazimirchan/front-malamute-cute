@@ -1,6 +1,13 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const nextTranslate = require("next-translate")
+const path = require("path")
 
-module.exports = nextConfig
+module.exports = nextTranslate({
+  reactStrictMode: true,
+  sassOptions: {
+    includePaths: [path.join(__dirname, "styles")],
+  },
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
+})

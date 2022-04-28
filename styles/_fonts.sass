@@ -1,0 +1,8 @@
+@import "mixins"
+$weights: ("heavy": 900, "black": 800, "bold": 700, "semibold": 600, "medium": 500, "regular": 400, "thin": 300, "ultralight": 200)
+
+@each $name, $weight in $weights
+  +font-face("Gilroy", $name, $weight)
+
+*, html
+  font-family: "Gilroy", BlinkMacSystemFont, system-ui, -apple-system

@@ -1,0 +1,105 @@
+@import "mixins"
+@import "colors"
+
+::-webkit-scrollbar
+    height: 12px
+    width: 6px
+
+    +screen(tablet)
+        width: 0px
+
+::-webkit-scrollbar-thumb
+    -webkit-border-radius: 8px
+
+body
+    margin: 0
+    &::-webkit-scrollbar
+        background: #{$main-dark}
+    &::-webkit-scrollbar-thumb
+        background: #{$main-light}
+        border: 1px solid #{$main-dark}
+
+.page
+    flex-direction: column
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    overflow-x: hidden
+
+    .container
+        width: 1024px
+        margin: unset
+        height: 100vh
+        display: grid
+        grid-template-rows: auto 2fr auto
+
+        +screen(tablet)
+            width: calc(100% - 40px)
+            margin: 0 20px
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+
+            &.open
+                overflow: hidden 
+                section.main
+                    .sinopsis > svg, .sinopsis > img
+                        display: none
+
+                .starfield__wrapper
+                    display: none
+
+                .graph-3d
+                    display: none
+
+                .bg-container
+                    display: none
+
+
+        +screen(mobile)
+            width: calc(100% - 40px)
+            margin: 0 20px
+
+            section
+            h1
+                margin-bottom: 100px
+
+                +screen(tablet)
+                    margin-bottom: 32px
+                    font-size: 26px
+                    line-height: 32px
+
+
+    section.main
+        display: flex
+        flex-direction: column
+        height: 100vh
+        position: relative
+        flex-shrink: 0
+
+        +screen(tablet)
+            &>.title
+                font-weight: 500
+                margin-bottom: 32px
+
+            &>.subtitle
+                font-weight: 400
+                font-size: 20px
+                line-height: 22px
+
+    section:not(.main)
+        margin-bottom: 200px
+        display: flex
+        flex-direction: column
+
+        +screen(tablet)
+            margin-bottom: 100px
+
+    .row
+        display: flex
+        flex-direction: row
+        flex-shrink: 0
+
+        +screen(mobile)
+            align-items: center
+            justify-content: space-between
